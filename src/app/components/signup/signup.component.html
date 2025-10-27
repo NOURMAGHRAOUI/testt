@@ -1,0 +1,55 @@
+<app-banner [title]="'Sign up'"></app-banner>
+
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <form [formGroup]="signupForm" >
+          <div class="form-group">
+            <input type="text" formControlName="firstName" class="form-control" placeholder="First Name" />
+            <div *ngIf="signupForm.controls['firstName'].invalid  && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)" class="text-danger">
+            
+            <div *ngIf="signupForm.controls['firstName'].errors?.['required']">Req *</div>
+            <div *ngIf="signupForm.controls['firstName'].errors?.['minlength']">Min Length</div>
+
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name" />
+            <div *ngIf="signupForm.controls['lastName'].invalid  && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)" class="text-danger">
+            
+                <div *ngIf="signupForm.controls['lastName'].errors?.['required']">Req *</div>
+                <div *ngIf="signupForm.controls['lastName'].errors?.['maxlength']">Max Length</div>
+    
+                </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="email" class="form-control" placeholder="Email" />
+            <div *ngIf="signupForm.controls['email'].invalid  && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)" class="text-danger">
+            
+                <div *ngIf="signupForm.controls['email'].errors?.['required']">Req *</div>
+                <div *ngIf="signupForm.controls['email'].errors?.['email']">Email invalid</div>
+    
+                </div>
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="password" class="form-control" placeholder="password" />
+          </div>
+          <div class="form-group">
+            <input type="text" formControlName="cPassword" class="form-control" placeholder="c password" />
+            <div *ngIf="signupForm.controls['cPassword'].invalid  && (signupForm.controls['cPassword'].touched || signupForm.controls['cPassword'].dirty)" class="text-danger">
+            
+                <div *ngIf="signupForm.controls['cPassword'].errors?.['mustMatch']">Min Length</div>
+    
+                </div>
+          </div>
+          <div class="form-group">
+            <button type="button" [disabled]="signupForm.invalid" (click)="signup()" class="btn btn-primary py-3 px-5">Signup</button>
+          </div>
+        </form>
+      </div>
+   
+    </div>
+  </div>
+</div>

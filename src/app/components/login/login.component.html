@@ -1,0 +1,27 @@
+
+<app-banner [title]="'LOGIN'"></app-banner>
+
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <form #loginForm="ngForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <input type="text" class="form-control" name="a"  [(ngModel)]="user.email" placeholder="EMAIL" />
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="b"  [(ngModel)]="user.pwd"  placeholder="PWD" />
+          </div>
+
+      
+          <div class="form-group">
+            <button type="submit"  class="btn btn-primary py-3 px-5">LOGIN</button>
+          </div>
+        </form>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+</div>
